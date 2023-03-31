@@ -11,7 +11,13 @@ import SwiftUI
 struct SentimentalystApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreen()
         }
+    }
+}
+
+struct Previews_SentimentalystApp_Previews: PreviewProvider {
+    static var previews: some View {
+        MainScreen()
     }
 }
