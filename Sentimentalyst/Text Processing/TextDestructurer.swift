@@ -8,7 +8,7 @@
 import NaturalLanguage
 
 struct TextDestructurer {
-    private let text: String
+    public let text: String
     private var content: [NLTokenUnit : [String]]
     
     public var words: [String] {
