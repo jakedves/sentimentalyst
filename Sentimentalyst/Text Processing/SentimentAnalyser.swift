@@ -12,25 +12,26 @@ struct SentimentAnalyser: TextAnalyser {
     private let destructurer: TextDestructurer
     
     var labelPerSentence: [Sentiment] {
-        destructurer.sentences.map(sentiment)
-    }
-    
-    var labelPerParagraph: [Sentiment] {
-        destructurer.paragraphs.map(sentiment)
+        let tagger = NLTagger(tagSchemes: [.sentimentScore])
+        let text = destructurer.text
+        tagger.string = text
+        
+        let tags = tagger.tags(in: text.startIndex..<text.endIndex, unit: .sentence, scheme: .sentimentScore)
+        return tags.map({ tag in
+            Double(tag.0?.rawValue ?? "0") ?? 0
+        })
     }
     
     var labelOverall: Sentiment {
-        sentiment(for: destructurer.text)
+        let tagger = NLTagger(tagSchemes: [.sentimentScore])
+        let text = destructurer.text
+        tagger.string = text
+        
+        let tag = tagger.tag(at: text.startIndex, unit: .paragraph, scheme: .sentimentScore)
+        return Double(tag.0?.rawValue ?? "0") ?? 0
     }
     
     init(_ text: String) {
         self.destructurer = TextDestructurer(text)
-    }
-    
-    func sentiment(for text: String) -> Double {
-        let tagger = NLTagger(tagSchemes: [.sentimentScore])
-        tagger.string = text
-        let (sentiment, _) = tagger.tag(at: text.startIndex, unit: .document, scheme: .sentimentScore)
-        return Double(sentiment?.rawValue ?? "0") ?? 0
     }
 }
