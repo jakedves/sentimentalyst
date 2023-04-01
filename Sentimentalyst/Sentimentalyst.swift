@@ -12,6 +12,7 @@ struct Sentimentalyst: App {
     var body: some Scene {
         WindowGroup {
             MainScreen()
+                .environmentObject(TextProcessor())
         }
     }
 }

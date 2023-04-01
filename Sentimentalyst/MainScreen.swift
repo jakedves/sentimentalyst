@@ -1,16 +1,15 @@
 import SwiftUI
 
 struct MainScreen: View {
-    @StateObject private var processor = TextProcessor()
-
+    @EnvironmentObject private var processor: TextProcessor
     public init() {}
     
     // some Navigation would be nice
     var body: some View {
         NavigationView {
             VStack {
-                DiaryForm(processor)
-                NavigationLink(destination: Statistics(processor).onAppear {
+                DiaryForm()
+                NavigationLink(destination: Statistics().onAppear {
                     processor.analyseText()
                 }) {
                     insights

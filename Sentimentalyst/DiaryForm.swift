@@ -2,11 +2,9 @@ import SwiftUI
 
 struct DiaryForm: View {
     @State private var formWidth: CGFloat = 400
-    @ObservedObject private var processor: TextProcessor
+    @EnvironmentObject private var processor: TextProcessor
     
-    init(_ processor: TextProcessor) {
-        self.processor = processor
-    }
+    public init() {}
     
     var body: some View {
         VStack(alignment: .center) {
@@ -36,6 +34,7 @@ struct DiaryForm: View {
 
 struct Previews_DiaryForm_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryForm(TextProcessor())
+        DiaryForm()
+            .environmentObject(TextProcessor())
     }
 }
