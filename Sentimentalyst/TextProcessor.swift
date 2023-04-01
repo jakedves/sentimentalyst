@@ -1,53 +1,112 @@
 import Foundation
+import CoreML
+import NaturalLanguage
 
 class TextProcessor: ObservableObject {
     @Published public var analysisState: AnalysisState = .none
+    
     @Published public var text: String = ""
-    private var previousText = ""
+    private var previousText: String = ""
+    private var processedText: String = ""
     
-    private var processedText = ""
-    private var lines: [String] = []
+    // update this so that user knows what's happening
+    @Published public var explainableState = ""
     
-    // overall day rating
+    // 1. bar graph - emotion per sentence
+    @Published public var emotionPerSentence: [Emotion] = []
     
-    // overall emotion
+    // 2. pie chart - percentage of text with each emotion
+    @Published public var emotionWeight: [Emotion : Double] = [
+        .unknown : 0,
+        .love : 0,
+        .fear : 0,
+        .sadness : 0,
+        .anger : 0,
+        .joy : 0
+    ]
     
-    // strongest emotion
+    // 3. two-sided bar chart - sentiment per sentence
+    @Published public var sentimentPerSentence: [Double] = []
     
-    // percentage of text with each emotion
+    // 4.
     
-    // sentiment percentage per sentence
+    // 5. overall emotion
+    @Published public var wholeTextEmotion: Emotion = .unknown
     
-    // overall sentiment score
+    // 6a. overall day rating - sentiment (maybe do five levels - awful, bad, neutral, good, amazing)
+    @Published public var dayRating = 0.85
+    
+    // 6b. overall day rating - most frequent emotion (per sentence breakdown)
+    @Published public var mostFrequentEmotion: Emotion = .unknown
     
     enum AnalysisState {
         case none, loading, finished
     }
     
+    init() {}
+    
     public func analyseText() {
         guard previousText != text else {
+            print("Analysis skipped as text hasn't changed since last analysis")
             return
         }
         
-        previousText = text
-        self.analysisState = .loading
-        print("Analyzing text...")
-        
-        print("Preprocessing...")
+        beginAnalysis() // sets previous text as it has changed, and sets state to loading
         preprocessText()
-        
-        // ...
+        computeEmotions(text: processedText)
+        computeSenitment(text: processedText)
         
         self.analysisState = .finished
         print("Text has been analyzed")
     }
     
+    private func beginAnalysis() {
+        self.explainableState = "Begining analysis..."
+        previousText = text
+        self.analysisState = .loading
+    }
+    
     private func preprocessText() {
+        self.explainableState = "Preprocessing..."
         processedText = text
-        processedText = processedText
             .lowercased()
             .filteringEmojis()
             .removingApostropihes()
+    }
+    
+    private func computeEmotions(text: String) {
+        self.explainableState = "Calculating emotions..."
+        let emotionAnalyser = EmotionAnalyser(text)
+        
+        // set emotionPerSentence
+        self.emotionPerSentence = emotionAnalyser?.labelPerSentence ?? []
+        
+        // set emotion weights and remember frequent emotion
+        let numberOfSentences = Double(emotionAnalyser?.labelPerSentence.count ?? 1)
+        
+        var maxSeen = (0.0, Emotion.unknown)
+        for emotion in Emotion.allCases {
+            let list = emotionAnalyser?.labelPerSentence.filter({ $0 == emotion }) ?? []
+            let occurancesOfEmotion = Double(list.count)
+            let percentage = occurancesOfEmotion / numberOfSentences
+            self.emotionWeight[emotion] = percentage
+            if percentage > maxSeen.0 {
+                maxSeen = (percentage, emotion)
+            }
+        }
+        
+        self.mostFrequentEmotion = maxSeen.1
+        
+        // set wholeTextEmotion
+        self.wholeTextEmotion = emotionAnalyser?.labelOverall ?? .unknown
+    }
+    
+    private func computeSenitment(text: String) {
+        self.explainableState = "Calculating sentiment..."
+        let sentimentAnalyser = SentimentAnalyser(text)
+        
+        sentimentPerSentence = sentimentAnalyser.labelPerSentence
+        dayRating = sentimentAnalyser.labelOverall
     }
 }
 
