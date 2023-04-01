@@ -1,6 +1,6 @@
 import Foundation
 
-enum Emotion: String {
+enum Emotion: String, CaseIterable {
     case sadness = "sadness"
     case joy = "joy"
     case love = "love"
