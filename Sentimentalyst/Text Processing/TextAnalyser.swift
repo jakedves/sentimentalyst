@@ -12,7 +12,5 @@ protocol TextAnalyser {
     
     var labelPerSentence: [Label] { get }
     
-    var labelPerParagraph: [Label] { get }
-    
     var labelOverall: Label { get }
 }
