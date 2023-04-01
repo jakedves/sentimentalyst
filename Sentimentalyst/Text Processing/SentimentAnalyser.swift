@@ -8,7 +8,6 @@
 import NaturalLanguage
 
 struct SentimentAnalyser: TextAnalyser {
-    typealias Sentiment = Double
     private let destructurer: TextDestructurer
     
     var labelPerSentence: [Sentiment] {
