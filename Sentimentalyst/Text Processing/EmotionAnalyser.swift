@@ -16,10 +16,6 @@ struct EmotionAnalyser: TextAnalyser {
         emotions(from: destructurer.sentences)
     }
     
-    var labelPerParagraph: [Emotion] {
-        emotions(from: destructurer.paragraphs)
-    }
-    
     var labelOverall: Emotion {
         emotion(for: destructurer.text)
     }
