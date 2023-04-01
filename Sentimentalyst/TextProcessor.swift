@@ -8,6 +8,18 @@ class TextProcessor: ObservableObject {
     private var processedText = ""
     private var lines: [String] = []
     
+    // overall day rating
+    
+    // overall emotion
+    
+    // strongest emotion
+    
+    // percentage of text with each emotion
+    
+    // sentiment percentage per sentence
+    
+    // overall sentiment score
+    
     enum AnalysisState {
         case none, loading, finished
     }

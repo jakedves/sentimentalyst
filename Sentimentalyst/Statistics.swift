@@ -3,18 +3,6 @@ import SwiftUI
 struct Statistics: View {
     @ObservedObject var processor: TextProcessor
     
-    // overall day rating
-    
-    // overall emotion
-    
-    // strongest emotion
-    
-    // percentage of text with each emotion
-    
-    // sentiment percentage per sentence
-    
-    // overall sentiment score
-    
     init(_ processor: TextProcessor) {
         self.processor = processor
     }
