@@ -14,6 +14,8 @@ struct MainScreen: View {
                     processor.analyseText()
                 }) {
                     insights
+                    
+                    // TODO: Read text from VISION
                 }
                 
             }
