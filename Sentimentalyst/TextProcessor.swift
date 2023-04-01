@@ -16,7 +16,7 @@ class TextProcessor: ObservableObject {
     @Published public var emotionPerSentence: [Emotion] = []
     
     // 2. pie chart - percentage of text with each emotion
-    @Published public var emotionWeight: [Emotion : Double] = [
+    @Published public var emotionWeight: [Emotion : Int] = [
         .unknown : 0,
         .love : 0,
         .fear : 0,
@@ -26,15 +26,15 @@ class TextProcessor: ObservableObject {
     ]
     
     // 3. two-sided bar chart - sentiment per sentence
-    @Published public var sentimentPerSentence: [Double] = []
+    @Published public var sentimentPerSentence: [Int] = []
     
     // 4.
     
     // 5. overall emotion
     @Published public var wholeTextEmotion: Emotion = .unknown
     
-    // 6a. overall day rating - sentiment (maybe do five levels - awful, bad, neutral, good, amazing)
-    @Published public var dayRating = 0.85
+    // 6a. overall day rating - sentiment (as a percentage)
+    @Published public var dayRating: Int = 0
     
     // 6b. overall day rating - most frequent emotion (per sentence breakdown)
     @Published public var mostFrequentEmotion: Emotion = .unknown
@@ -88,8 +88,8 @@ class TextProcessor: ObservableObject {
         for emotion in Emotion.allCases {
             let list = emotionAnalyser?.labelPerSentence.filter({ $0 == emotion }) ?? []
             let occurancesOfEmotion = Double(list.count)
-            let percentage = occurancesOfEmotion / numberOfSentences
-            self.emotionWeight[emotion] = percentage
+            let percentage = occurancesOfEmotion / numberOfSentences * 100
+            self.emotionWeight[emotion] = Int(percentage)
             if percentage > maxSeen.0 {
                 maxSeen = (percentage, emotion)
             }
@@ -105,8 +105,10 @@ class TextProcessor: ObservableObject {
         self.explainableState = "Calculating sentiment..."
         let sentimentAnalyser = SentimentAnalyser(text)
         
-        sentimentPerSentence = sentimentAnalyser.labelPerSentence
-        dayRating = sentimentAnalyser.labelOverall
+        sentimentPerSentence = sentimentAnalyser.labelPerSentence.map({ Int($0 * 100) })
+        
+        // .labelOverall is a one-decimal-place double
+        dayRating = Int(sentimentAnalyser.labelOverall * 100)
     }
 }
 
