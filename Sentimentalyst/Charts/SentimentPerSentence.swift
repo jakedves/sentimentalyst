@@ -11,6 +11,8 @@ import Charts
 struct SentimentPerSentence: View {
     private let data: [SentimentScore]
     private let avg: SentimentScore
+    @State private var averageOpacity = 0.5
+    @State private var mainLineOpacity = 1.0
     
     init(_ data: [SentimentScore], avg: SentimentScore) {
         self.data = data
@@ -37,13 +39,28 @@ struct SentimentPerSentence: View {
                             y: .value(Constants.yLabel, sentiment)
                     )
                     .interpolationMethod(.catmullRom)
+                    .opacity(mainLineOpacity)
                 }
                 RuleMark(y: .value("Average", avg))
+                    .annotation(position: .top, alignment: .leading) {
+                        Text("Average: \(avg, format: .number)")
+                            .font(.headline)
+                            .foregroundColor(SentimentPerSentence.ruleColor(avg))
+                            .padding([.horizontal], 8)
+                            .opacity(averageOpacity)
+                    }
                     .foregroundStyle(SentimentPerSentence.ruleColor(avg))
+                    .opacity(averageOpacity)
             }
             .chartYAxisLabel(Constants.yAxisTop, position: .top, alignment: .trailing)
             .chartYAxisLabel(Constants.yAxisBot, position: .bottom, alignment: .trailing)
             .chartXAxisLabel(Constants.xAxisLabel, position: .bottom, alignment: .center)
+            .onLongPressGesture {
+                
+            } onPressingChanged: { isPressed in
+                averageOpacity = isPressed ? 1.0 : 0.3
+                mainLineOpacity = isPressed ? 0.3 : 1.0
+            }
         }
     }
     
@@ -59,7 +76,7 @@ struct SentimentPerSentence: View {
     
     struct Constants {
         static let title = "Sentiment"
-        static let explainer = "Sentiment describes how positive your message is. A score close to 100 is very positive, whilst a score close to -100 is very negative."
+        static let explainer = "Sentiment describes how positive your message is. A score close to 100 is very positive, whilst a score close to -100 is very negative.\n\nLong press to see average"
         static let xLabel = "Sentence"
         static let yLabel = "Percentage"
         static let xAxisLabel = "Sentence Number"
