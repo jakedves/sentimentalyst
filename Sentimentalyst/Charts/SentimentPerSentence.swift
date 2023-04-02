@@ -56,6 +56,19 @@ struct SentimentPerSentence: View {
 
 struct SentimentPerSentence_Previews: PreviewProvider {
     static var previews: some View {
-        SentimentPerSentence([])
+        SentimentPerSentence([
+            60,
+            80,
+            -40,
+            100,
+            40,
+            -20,
+            -80,
+            40,
+            -60,
+            -20,
+            80,
+        ])
+        .frame(width: 500, height: 500 / 4 * 3)
     }
 }
