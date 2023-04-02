@@ -12,16 +12,18 @@ struct Statistics: View {
             Text("You didn't write anything!")
             
         case .loading:
-            loading
+            ProgressView(processor.explainableState)
+                .progressViewStyle(CircularProgressViewStyle())
             
         case .finished:
             finished
         }
     }
     
-    var loading: some View {
-        ProgressView("Analyzing your entry 👀")
-            .progressViewStyle(CircularProgressViewStyle())
+    var title: some View {
+        Text("📊 Your insights")
+            .font(.largeTitle)
+            .bold()
     }
     
     // maybe change to use 3 x 2 instead of 2 x 3 if in landscape??
@@ -65,61 +67,17 @@ struct Statistics: View {
         }
     }
     
-    var title: some View {
-        Text("📊 Your insights")
-            .font(.largeTitle)
-            .bold()
-    }
-    
-    // 1. Could plot all emotions and thier confidence per sentence??
     var emotionPerSetence: some View {
-        VStack {
-            Text("Emotion Per Sentence")
-                .bold()
-                .font(.title2)
-            CategoryOverTime(categories: processor.emotionPerSentence,
-                             xLabel: "Sentence Number",
-                             yLabel: "Emotion",
-                             colorScheme: emotionToColor)
-        }
+        EmotionPerSentence(processor.emotionPerSentence)
     }
     
-    // 2.
     var emotionPercentage: some View {
-        VStack {
-            Text("Emotion Percentages")
-                .bold()
-                .font(.title2)
-            Chart {
-                ForEach(Emotion.allCases) { emotion in
-                    BarMark(x: .value("Emotion", emotion.rawValue.capitalized),
-                            y: .value("Percentage", processor.emotionWeight[emotion] ?? 0)
-                    )
-                    .foregroundStyle(emotionToColor[emotion] ?? .black)
-                }
-            }
-            .chartYAxisLabel("Percentage of Sentences (%)")
-        }
+        EmotionPrevalence(weights: processor.emotionWeight)
     }
     
     // 3. TODO: color top half a light green and bottom half a light red
     var sentimentPerSentence: some View {
-        VStack {
-            Text("Sentiment Per Sentence")
-                .bold()
-                .font(.title2)
-            Chart {
-                ForEach(processor.sentimentPerSentence.indices, id: \.self) { index in
-                    let sentiment = processor.sentimentPerSentence[index]
-                    LineMark(x: .value("Sentence", index + 1),
-                            y: .value("Percentage", sentiment)
-                    )
-                }
-            }
-            .chartYAxisLabel("Positive", position: .top, alignment: .trailing)
-            .chartYAxisLabel("Negative", position: .bottom, alignment: .trailing)
-            .chartXAxisLabel("Sentence Number", position: .bottom, alignment: .center)
-        }
+        SentimentPerSentence(processor.sentimentPerSentence)
     }
     
     // 4. Could plot all emotions and thier confidence per sentence??
@@ -129,56 +87,16 @@ struct Statistics: View {
         EmptyView()
     }
     
-    
     // 5. (whole text in one analysis)
     var overview: some View {
-        VStack {
-            let overallEmotion = processor.wholeTextEmotion
-            let sentiment = processor.wholeTextSentiment
-            Text("Today's Overview")
-                .bold()
-                .font(.title2)
-            HStack {
-                VStack {
-                    Text(emotionToEmoji[overallEmotion] ?? "")
-                        .font(.system(size: 150.0))
-                    Text(overallEmotion.rawValue.capitalized)
-                        .font(.caption)
-                    Text(emotionTip[overallEmotion] ?? "")
-                        .font(.subheadline)
-                }
-                .padding([.horizontal], 20)
-                
-                VStack {
-                    Spacer()
-                    Text("Overall emotion:")
-                        .font(.title3)
-                    Text("\(overallEmotion.rawValue.uppercased())")
-                        .font(.title2)
-                        .bold()
-                    Spacer()
-                    Text("Most frequent emotion:")
-                        .font(.title3)
-                    Text("\(processor.mostFrequentEmotion.rawValue.uppercased())")
-                        .font(.title2)
-                        .bold()
-                    Spacer()
-                    Text("Overall sentiment score:")
-                        .font(.title3)
-                    Text("\(sentiment)")
-                        .font(.title2)
-                        .bold()
-                    Spacer()
-                }
-                .padding([.horizontal], 20)
-                
-            }
-            
-            
-        }
+        TodaysOverview(mostFrequentEmtion: processor.mostFrequentEmotion,
+                       wholeTextEmotion: processor.wholeTextEmotion,
+                       wholeTextSentiment: processor.wholeTextSentiment)
     }
 }
 
+
+// MARK: PREVIEW STUFF, MOCK DATA ETC -------------------------------------
 struct Previews_Statistics_Previews: PreviewProvider {
     static var processor = TextProcessor()
     
@@ -189,6 +107,7 @@ struct Previews_Statistics_Previews: PreviewProvider {
     
     static func adapt() -> TextProcessor {
         processor.analysisState = .finished
+        processor.explainableState = "Calculating emotions..."
         
         processor.emotionWeight = [
             .unknown : Int(1.0 / 11.0 * 100.0),
@@ -228,7 +147,7 @@ struct Previews_Statistics_Previews: PreviewProvider {
         ]
         
         processor.sentimentPerSentence = sentimentScores
-        processor.wholeTextEmotion = .love
+        processor.wholeTextEmotion = .joy
         
         processor.wholeTextSentiment = 60
         processor.mostFrequentEmotion = .joy
