@@ -7,13 +7,31 @@
 
 import SwiftUI
 
-let EmotionColor: [Emotion : Color] = [
+let emotionToColor: [Emotion: Color] = [
     .joy : .green,
     .anger : .red,
     .sadness : .blue,
     .fear : .gray,
-    .love : .pink,
+    .love : .purple.opacity(0.7),
     .unknown : .orange
+]
+
+let emotionToEmoji: [Emotion: String] = [
+    .joy : "🤩",
+    .anger : "😡",
+    .sadness : "😔",
+    .fear : "😰",
+    .love : "🥰",
+    .unknown : "🤨"
+]
+
+let emotionTip: [Emotion: String] = [
+    .joy : "What a great day to journal about!",
+    .anger : "You're a little angry, don't let anything bother you!",
+    .sadness : "Don't be sad, tomorrow will be better!",
+    .fear : "Don't worry about anything, you can get through this!",
+    .love : "Love is in the air...",
+    .unknown : "You were feeling a bit of everything today!"
 ]
 
 // 5 categories: awful, bad, neutral, good, amazing

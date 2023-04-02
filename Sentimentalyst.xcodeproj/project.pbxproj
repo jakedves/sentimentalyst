@@ -22,6 +22,7 @@
 		50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */; };
 		50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F029D85CC50017FC0A /* EmotionUI.swift */; };
 		50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F229D85E220017FC0A /* TextDestructurer.swift */; };
+		50C557D629D901E1004AE97B /* CategoryOverTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C557D529D901E1004AE97B /* CategoryOverTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TextClassifier.mlpackage; sourceTree = "<group>"; };
 		50BBB7F029D85CC50017FC0A /* EmotionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionUI.swift; sourceTree = "<group>"; };
 		50BBB7F229D85E220017FC0A /* TextDestructurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDestructurer.swift; sourceTree = "<group>"; };
+		50C557D529D901E1004AE97B /* CategoryOverTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOverTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		50484A6C29D7A4840026F8FF /* Sentimentalyst */ = {
 			isa = PBXGroup;
 			children = (
+				50C557D429D90182004AE97B /* Charts */,
 				5047B10F29D86D4500F6418A /* Text Processing */,
 				50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */,
 				50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */,
@@ -106,6 +109,14 @@
 				50484A7429D7A4880026F8FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50C557D429D90182004AE97B /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				50C557D529D901E1004AE97B /* CategoryOverTime.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 				50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */,
 				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
 				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
+				50C557D629D901E1004AE97B /* CategoryOverTime.swift in Sources */,
 				50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */,
 				50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */,
 				5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */,

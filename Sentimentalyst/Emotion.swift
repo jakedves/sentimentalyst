@@ -1,6 +1,10 @@
 import Foundation
 
-enum Emotion: String, CaseIterable, Identifiable {
+enum Emotion: String, CaseIterable, Identifiable, CategoricalPlottable {
+    var description: String {
+        self.rawValue
+    }
+    
     var id: String {
         self.rawValue
     }

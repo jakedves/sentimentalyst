@@ -34,7 +34,7 @@ class TextProcessor: ObservableObject {
     @Published public var wholeTextEmotion: Emotion = .unknown
     
     // 6a. overall day rating - sentiment (as a percentage)
-    @Published public var dayRating: Int = 0
+    @Published public var wholeTextSentiment: Int = 0
     
     // 6b. overall day rating - most frequent emotion (per sentence breakdown)
     @Published public var mostFrequentEmotion: Emotion = .unknown
@@ -108,7 +108,7 @@ class TextProcessor: ObservableObject {
         sentimentPerSentence = sentimentAnalyser.labelPerSentence.map({ Int($0 * 100) })
         
         // .labelOverall is a one-decimal-place double
-        dayRating = Int(sentimentAnalyser.labelOverall * 100)
+        wholeTextSentiment = Int(sentimentAnalyser.labelOverall * 100)
     }
 }
 
