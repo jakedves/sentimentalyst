@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50130D2629D9AB8700BFA6A2 /* HelpImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2529D9AB8700BFA6A2 /* HelpImage.swift */; };
+		50130D2829D9B6FA00BFA6A2 /* TodaysOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2729D9B6FA00BFA6A2 /* TodaysOverview.swift */; };
+		50130D2A29D9B94300BFA6A2 /* EmotionPrevalence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */; };
+		50130D2C29D9BA7300BFA6A2 /* EmotionPerSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */; };
+		50130D2E29D9BB2D00BFA6A2 /* SentimentPerSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */; };
 		5047B10C29D86C7900F6418A /* TextAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B10B29D86C7900F6418A /* TextAnalyser.swift */; };
 		5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B10D29D86D3E00F6418A /* EmotionAnalyser.swift */; };
 		5047B11129D86E2100F6418A /* SentimentAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B11029D86E2100F6418A /* SentimentAnalyser.swift */; };
@@ -26,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50130D2529D9AB8700BFA6A2 /* HelpImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpImage.swift; sourceTree = "<group>"; };
+		50130D2729D9B6FA00BFA6A2 /* TodaysOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysOverview.swift; sourceTree = "<group>"; };
+		50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionPrevalence.swift; sourceTree = "<group>"; };
+		50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionPerSentence.swift; sourceTree = "<group>"; };
+		50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentPerSentence.swift; sourceTree = "<group>"; };
 		5047B10B29D86C7900F6418A /* TextAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyser.swift; sourceTree = "<group>"; };
 		5047B10D29D86D3E00F6418A /* EmotionAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionAnalyser.swift; sourceTree = "<group>"; };
 		5047B11029D86E2100F6418A /* SentimentAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentAnalyser.swift; sourceTree = "<group>"; };
@@ -56,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50130D2429D9AB7700BFA6A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50130D2529D9AB8700BFA6A2 /* HelpImage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5047B10F29D86D4500F6418A /* Text Processing */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +104,7 @@
 		50484A6C29D7A4840026F8FF /* Sentimentalyst */ = {
 			isa = PBXGroup;
 			children = (
+				50130D2429D9AB7700BFA6A2 /* Views */,
 				50C557D429D90182004AE97B /* Charts */,
 				5047B10F29D86D4500F6418A /* Text Processing */,
 				50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */,
@@ -115,6 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				50C557D529D901E1004AE97B /* CategoryOverTime.swift */,
+				50130D2729D9B6FA00BFA6A2 /* TodaysOverview.swift */,
+				50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */,
+				50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */,
+				50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -190,6 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5047B10C29D86C7900F6418A /* TextAnalyser.swift in Sources */,
+				50130D2A29D9B94300BFA6A2 /* EmotionPrevalence.swift in Sources */,
+				50130D2629D9AB8700BFA6A2 /* HelpImage.swift in Sources */,
 				50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */,
 				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
 				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
@@ -198,10 +223,13 @@
 				50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */,
 				5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */,
 				50BBB7E629D7A9730017FC0A /* TextProcessor.swift in Sources */,
+				50130D2829D9B6FA00BFA6A2 /* TodaysOverview.swift in Sources */,
 				50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */,
+				50130D2E29D9BB2D00BFA6A2 /* SentimentPerSentence.swift in Sources */,
 				50BBB7E729D7A9730017FC0A /* CustomTextEditor.swift in Sources */,
 				50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */,
 				5047B11129D86E2100F6418A /* SentimentAnalyser.swift in Sources */,
+				50130D2C29D9BA7300BFA6A2 /* EmotionPerSentence.swift in Sources */,
 				50BBB7E829D7A9730017FC0A /* DiaryForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
