@@ -55,12 +55,16 @@ struct SentimentPerSentence: View {
             .chartYAxisLabel(Constants.yAxisTop, position: .top, alignment: .trailing)
             .chartYAxisLabel(Constants.yAxisBot, position: .bottom, alignment: .trailing)
             .chartXAxisLabel(Constants.xAxisLabel, position: .bottom, alignment: .center)
-            .onLongPressGesture {
-                
-            } onPressingChanged: { isPressed in
-                averageOpacity = isPressed ? 1.0 : 0.3
-                mainLineOpacity = isPressed ? 0.3 : 1.0
-            }
+            .gesture(DragGesture(minimumDistance: 0)
+                .onChanged { _ in
+                    averageOpacity = 1.0
+                    mainLineOpacity = 0.3
+                }
+                .onEnded { _ in
+                    averageOpacity = 0.3
+                    mainLineOpacity = 1.0
+                }
+            )
         }
     }
     
