@@ -80,6 +80,7 @@ struct Statistics: View {
         let total = processor.sentimentPerSentence.sum()
         let sentenceCount = processor.sentimentPerSentence.count
         let avg = total / sentenceCount
+        
         return SentimentPerSentence(processor.sentimentPerSentence,
                              avg: avg)
     }
