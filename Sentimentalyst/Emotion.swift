@@ -1,8 +1,9 @@
 import Foundation
+import Charts
 
-enum Emotion: String, CaseIterable, Identifiable, CategoricalPlottable {
+enum Emotion: String, CaseIterable, Identifiable, Plottable {
     var description: String {
-        self.rawValue
+        self.rawValue.capitalized
     }
     
     var id: String {
