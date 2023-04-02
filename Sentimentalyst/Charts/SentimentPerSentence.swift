@@ -10,9 +10,11 @@ import Charts
 
 struct SentimentPerSentence: View {
     private let data: [SentimentScore]
+    private let avg: SentimentScore
     
-    init(_ data: [SentimentScore]) {
+    init(_ data: [SentimentScore], avg: SentimentScore) {
         self.data = data
+        self.avg = avg
     }
     
     var body: some View {
@@ -36,10 +38,22 @@ struct SentimentPerSentence: View {
                     )
                     .interpolationMethod(.catmullRom)
                 }
+                RuleMark(y: .value("Average", avg))
+                    .foregroundStyle(SentimentPerSentence.ruleColor(avg))
             }
             .chartYAxisLabel(Constants.yAxisTop, position: .top, alignment: .trailing)
             .chartYAxisLabel(Constants.yAxisBot, position: .bottom, alignment: .trailing)
             .chartXAxisLabel(Constants.xAxisLabel, position: .bottom, alignment: .center)
+        }
+    }
+    
+    private static func ruleColor(_ val: SentimentScore) -> Color {
+        if val > 25 {
+            return Color.green
+        } else if val > -25 {
+            return Color.gray
+        } else {
+            return Color.red
         }
     }
     
@@ -68,7 +82,7 @@ struct SentimentPerSentence_Previews: PreviewProvider {
             -60,
             -20,
             80,
-        ])
+        ], avg: 23)
         .frame(width: 500, height: 500 / 4 * 3)
     }
 }

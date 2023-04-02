@@ -77,7 +77,11 @@ struct Statistics: View {
     
     // 3. TODO: color top half a light green and bottom half a light red
     var sentimentPerSentence: some View {
-        SentimentPerSentence(processor.sentimentPerSentence)
+        let total = processor.sentimentPerSentence.sum()
+        let sentenceCount = processor.sentimentPerSentence.count
+        let avg = total / sentenceCount
+        return SentimentPerSentence(processor.sentimentPerSentence,
+                             avg: avg)
     }
     
     // 4. Could plot all emotions and thier confidence per sentence??
@@ -154,4 +158,8 @@ struct Previews_Statistics_Previews: PreviewProvider {
         
         return processor
     }
+}
+
+extension Sequence where Element: AdditiveArithmetic {
+    func sum() -> Element { reduce(.zero, +) }
 }
