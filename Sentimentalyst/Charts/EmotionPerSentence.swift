@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Charts
 
 struct EmotionPerSentence: View {
-    private let data: [Emotion]
+    private let data: [String]
+    let xLabel = "Sentence Number"
+    let yLabel = "Emotion"
     
     init(_ data: [Emotion]) {
-        self.data = data
+        self.data = data.map(\.rawValue.capitalized)
     }
     
     var body: some View {
@@ -19,22 +22,46 @@ struct EmotionPerSentence: View {
             Text(Constants.title)
                 .bold()
                 .font(.title2)
-            CategoryOverTime(categories: data,
-                             xLabel: Constants.xLabel,
-                             yLabel: Constants.yLabel,
-                             colorScheme: emotionToColor)
+            Chart(data.indices, id: \.self) { index in
+                let emotion = data[index]
+                RectangleMark(xStart: .value(xLabel, index + 1),
+                        xEnd: .value(xLabel, index + 2),
+                        y: .value(yLabel, emotion.description)
+                )
+                .foregroundStyle(by: .value(xLabel, emotion.description))
+            }
+            .chartXAxisLabel(xLabel, position: .bottom, alignment: .center)
+            .chartForegroundStyleScale([
+                "Anger" : .red,
+                "Sadness" : .blue,
+                "Joy" : .green,
+                "Fear" : .gray,
+                "Love" : .purple.opacity(0.7),
+                "Unknown" : .orange
+            ])
         }
     }
     
     struct Constants {
         static let title = "Emotions"
-        static let xLabel = "Sentence Number"
-        static let yLabel = "Emotion"
     }
 }
 
 struct EmotionPerSentence_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionPerSentence([])
+        EmotionPerSentence([
+            .joy,
+            .joy,
+            .anger,
+            .love,
+            .joy,
+            .unknown,
+            .fear,
+            .love,
+            .anger,
+            .sadness,
+            .joy
+        ])
+        .frame(width: 500, height: 500 / 4 * 3)
     }
 }
