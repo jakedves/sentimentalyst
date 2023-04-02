@@ -8,6 +8,7 @@
 import SwiftUI
 
 typealias Sentiment = Double
+typealias SentimentScore = Int
 
 @main
 struct Sentimentalyst: App {
