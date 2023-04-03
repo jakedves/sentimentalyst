@@ -25,6 +25,7 @@ struct TextDestructurer {
     
     init(_ text: String) {
         self.text = text
+        print(text + "\n\n")
         let wordTokenizer = NLTokenizer(unit: .word)
         let sentenceTokenizer = NLTokenizer(unit: .sentence)
         let paragraphTokenizer = NLTokenizer(unit: .paragraph)
