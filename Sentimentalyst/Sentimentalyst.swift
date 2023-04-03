@@ -12,10 +12,13 @@ typealias SentimentScore = Int
 
 @main
 struct Sentimentalyst: App {
+    // prevent lazy init => thread error as init and setting a @Published value on non-main thread
+    let processor = TextProcessor()
+    
     var body: some Scene {
         WindowGroup {
             MainScreen()
-                .environmentObject(TextProcessor())
+                .environmentObject(processor)
         }
     }
 }

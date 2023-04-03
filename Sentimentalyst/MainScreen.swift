@@ -13,7 +13,9 @@ struct MainScreen: View {
                 // TODO: Vision button
                 NavigationLink(destination: Statistics()
                     .onAppear {
-                        processor.analyseText()
+                        DispatchQueue(label: "NLP", qos: .userInitiated).async {
+                            processor.analyseText()
+                        }
                     }) {
                         insights
                     }

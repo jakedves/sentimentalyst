@@ -16,7 +16,7 @@ class TextProcessor: ObservableObject {
     @Published public var emotionPerSentence: [Emotion] = []
     
     // 2. pie chart - percentage of text with each emotion
-    @Published public var emotionWeight: [Emotion : Int] = [
+    public var emotionWeight: [Emotion : Int] = [
         .unknown : 0,
         .love : 0,
         .fear : 0,
@@ -56,18 +56,24 @@ class TextProcessor: ObservableObject {
         computeEmotions(text: processedText)
         computeSenitment(text: processedText)
         
-        self.analysisState = .finished
+        DispatchQueue.main.async {
+            self.analysisState = .finished
+        }
         print("Text has been analyzed")
     }
     
     private func beginAnalysis() {
-        self.explainableState = "Begining analysis..."
+        DispatchQueue.main.async {
+            self.explainableState = "Begining analysis..."
+            self.analysisState = .loading
+        }
         previousText = text
-        self.analysisState = .loading
     }
     
     private func preprocessText() {
-        self.explainableState = "Preprocessing..."
+        DispatchQueue.main.async {
+            self.explainableState = "Preprocessing..."
+        }
         processedText = text
             .lowercased()
             .filteringEmojis()
@@ -76,11 +82,10 @@ class TextProcessor: ObservableObject {
     }
     
     private func computeEmotions(text: String) {
-        self.explainableState = "Calculating emotions..."
+        DispatchQueue.main.async {
+            self.explainableState = "Calculating emotions..."
+        }
         let emotionAnalyser = EmotionAnalyser(text)
-        
-        // set emotionPerSentence
-        self.emotionPerSentence = emotionAnalyser?.labelPerSentence ?? []
         
         // set emotion weights and remember frequent emotion
         let numberOfSentences = Double(emotionAnalyser?.labelPerSentence.count ?? 1)
@@ -96,20 +101,29 @@ class TextProcessor: ObservableObject {
             }
         }
         
-        self.mostFrequentEmotion = maxSeen.1
+        DispatchQueue.main.async {
+            // set emotionPerSentence
+            self.emotionPerSentence = emotionAnalyser?.labelPerSentence ?? []
+            self.mostFrequentEmotion = maxSeen.1
+            
+            // set wholeTextEmotion
+            self.wholeTextEmotion = emotionAnalyser?.labelOverall ?? .unknown
+        }
         
-        // set wholeTextEmotion
-        self.wholeTextEmotion = emotionAnalyser?.labelOverall ?? .unknown
     }
     
     private func computeSenitment(text: String) {
-        self.explainableState = "Calculating sentiment..."
+        DispatchQueue.main.async {
+            self.explainableState = "Calculating sentiment..."
+        }
         let sentimentAnalyser = SentimentAnalyser(text)
         
-        sentimentPerSentence = sentimentAnalyser.labelPerSentence.map({ Int($0 * 100) })
-        
-        // .labelOverall is a one-decimal-place double
-        wholeTextSentiment = Int(sentimentAnalyser.labelOverall * 100)
+        DispatchQueue.main.async {
+            self.sentimentPerSentence = sentimentAnalyser.labelPerSentence.map({ Int($0 * 100) })
+            
+            // .labelOverall is a one-decimal-place double
+            self.wholeTextSentiment = Int(sentimentAnalyser.labelOverall * 100)
+        }
     }
 }
 
