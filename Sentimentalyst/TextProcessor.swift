@@ -72,6 +72,7 @@ class TextProcessor: ObservableObject {
             .lowercased()
             .filteringEmojis()
             .removingApostropihes()
+            .separatingSentences()
     }
     
     private func computeEmotions(text: String) {
@@ -122,6 +123,15 @@ extension String {
     }
     
     func removingApostropihes() -> String {
-        return self.filter { $0 != "'" }
+        return self
+            .replacing("’", with: " ")
+            .replacing("'", with: " ")
+    }
+    
+    func separatingSentences() -> String {
+        return self
+            .replacing(". ", with: ".\n")
+            .replacing("? ", with: "?\n")
+            .replacing("! ", with: "!\n")
     }
 }
