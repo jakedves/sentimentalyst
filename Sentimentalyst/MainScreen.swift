@@ -1,8 +1,11 @@
 import SwiftUI
+import Vision
 
 struct MainScreen: View {
     @EnvironmentObject private var processor: TextProcessor
     @State var needsOnboarding: Bool
+    @State var isCameraOpen = false
+    @State var image: UIImage?
     
     public init(needsOnboarding: Bool) {
         self.needsOnboarding = needsOnboarding
@@ -13,8 +16,17 @@ struct MainScreen: View {
         NavigationView {
             VStack {
                 DiaryForm()
-                loadExample
-                // TODO: Vision button
+                HStack {
+                    Spacer()
+                    Button("Use camera") {
+                        self.isCameraOpen = true
+                    }
+                    Spacer()
+                    loadExample
+                    Spacer()
+                }
+                .frame(width: 400)
+                
                 NavigationLink(destination: Statistics()
                     .onAppear {
                         DispatchQueue(label: "NLP", qos: .userInitiated).async {
@@ -28,6 +40,9 @@ struct MainScreen: View {
         .navigationViewStyle(.stack)
         .fullScreenCover(isPresented: $needsOnboarding) {
             OnBoarding(needsOnboarding: $needsOnboarding)
+        }
+        .sheet(isPresented: $isCameraOpen, onDismiss: processImage) {
+            ImagePicker(image: self.$image, isShown: self.$isCameraOpen, sourceType: .camera)
         }
     }
     
@@ -56,13 +71,38 @@ After that I had my favourite dinner ever - sausage and mash. It was perfect. De
 """
         }
     }
+    
+    private func processImage() {
+        guard let image = image else { return }
+        guard let ciImage = CIImage(image: image) else { return }
+            
+        let handler = VNImageRequestHandler(ciImage: ciImage)
+        let request = VNRecognizeTextRequest { (request, error) in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+            var detectedText = ""
+            
+            for observation in observations {
+                guard let topCandidate = observation.topCandidates(1).first else { continue }
+                detectedText += topCandidate.string + " "
+            }
+            
+            self.processor.text = detectedText
+        }
+            
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 struct Previews_MainScreen_Previews: PreviewProvider {
     private static let yes = true
+    private static let no = false
     
     static var previews: some View {
-        MainScreen(needsOnboarding: yes)
+        MainScreen(needsOnboarding: no)
             .environmentObject(TextProcessor())
     }
 }

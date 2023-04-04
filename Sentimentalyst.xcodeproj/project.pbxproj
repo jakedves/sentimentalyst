@@ -27,6 +27,8 @@
 		50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */; };
 		50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F029D85CC50017FC0A /* EmotionUI.swift */; };
 		50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F229D85E220017FC0A /* TextDestructurer.swift */; };
+		50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */; };
+		50CD650529DCC7CA00709865 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650429DCC7CA00709865 /* ImagePicker.swift */; };
 		50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB36E929DB713800758793 /* OnBoarding.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,9 @@
 		50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TextClassifier.mlpackage; sourceTree = "<group>"; };
 		50BBB7F029D85CC50017FC0A /* EmotionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionUI.swift; sourceTree = "<group>"; };
 		50BBB7F229D85E220017FC0A /* TextDestructurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDestructurer.swift; sourceTree = "<group>"; };
+		50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		50CD650429DCC7CA00709865 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		50CD650629DCCC2700709865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50DB36E929DB713800758793 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +109,7 @@
 		50484A6C29D7A4840026F8FF /* Sentimentalyst */ = {
 			isa = PBXGroup;
 			children = (
+				50CD650629DCCC2700709865 /* Info.plist */,
 				50130D2429D9AB7700BFA6A2 /* Views */,
 				50C557D429D90182004AE97B /* Charts */,
 				5047B10F29D86D4500F6418A /* Text Processing */,
@@ -119,6 +125,8 @@
 				50484A7129D7A4880026F8FF /* Assets.xcassets */,
 				50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */,
 				50484A7329D7A4880026F8FF /* Preview Content */,
+				50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */,
+				50CD650429DCC7CA00709865 /* ImagePicker.swift */,
 			);
 			path = Sentimentalyst;
 			sourceTree = "<group>";
@@ -215,7 +223,9 @@
 				5047B10C29D86C7900F6418A /* TextAnalyser.swift in Sources */,
 				50130D2A29D9B94300BFA6A2 /* EmotionPrevalence.swift in Sources */,
 				50130D2629D9AB8700BFA6A2 /* HelpImage.swift in Sources */,
+				50CD650529DCC7CA00709865 /* ImagePicker.swift in Sources */,
 				50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */,
+				50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */,
 				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
 				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
 				50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */,
@@ -362,6 +372,7 @@
 				DEVELOPMENT_TEAM = 3FD587963T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sentimentalyst/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -391,6 +402,7 @@
 				DEVELOPMENT_TEAM = 3FD587963T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sentimentalyst/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
