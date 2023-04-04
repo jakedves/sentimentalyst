@@ -212,7 +212,7 @@ struct OnBoarding: View {
                 .padding([.vertical])
                 
                 HStack {
-                    Text("📈    ")
+                    Text("📊    ")
                     Text("Swift Charts")
                         .bold()
                     Text("for displaying data beautifully")
