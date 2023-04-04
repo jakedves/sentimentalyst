@@ -30,39 +30,72 @@ struct Statistics: View {
     var finished: some View {
         GeometryReader { geo in
             // want it to be 4:3 regardless of orientation
-            let itemHeight = geo.size.height * 0.33 * 0.7 // 3 rows and less
+            let horizontal = geo.size.width > geo.size.height
+            let multiplier = horizontal ? (0.5 * 0.7) : (0.33 * 0.7)
+            let itemHeight = geo.size.height * multiplier
             let itemWidth = itemHeight * 4 / 3
-            VStack {
-                Spacer()
-                title
-                Spacer()
-                HStack {
+            
+            if horizontal {
+                VStack {
+                    title
+                        .padding()
+                    HStack {
+                        Spacer()
+                        emotionPerSetence
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                        emotionPercentage
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                        sentimentPerSentence
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                    }
                     Spacer()
-                    emotionPerSetence
-                        .frame(width: itemWidth, height: itemHeight)
-                    Spacer()
-                    emotionPercentage
-                        .frame(width: itemWidth, height: itemHeight)
+                    HStack {
+                        Spacer()
+                        emotionPercentage
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                        overview
+                            .frame(width: itemWidth * 2, height: itemHeight)
+                        Spacer()
+                    }
                     Spacer()
                 }
-                Spacer()
-                HStack {
+            } else {
+                VStack {
                     Spacer()
-                    sentimentPerSentence
-                        .frame(width: itemWidth, height: itemHeight)
+                    title
                     Spacer()
-                    emotionPercentage
-                        .frame(width: itemWidth, height: itemHeight)
+                    HStack {
+                        Spacer()
+                        emotionPerSetence
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                        emotionPercentage
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                    }
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        sentimentPerSentence
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                        emotionPercentage
+                            .frame(width: itemWidth, height: itemHeight)
+                        Spacer()
+                    }
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        overview
+                            .frame(width: itemWidth * 2, height: itemHeight)
+                        Spacer()
+                    }
                     Spacer()
                 }
-                Spacer()
-                HStack {
-                    Spacer()
-                    overview
-                        .frame(width: itemWidth * 2, height: itemHeight)
-                    Spacer()
-                }
-                Spacer()
             }
         }
     }
