@@ -2,7 +2,11 @@ import SwiftUI
 
 struct MainScreen: View {
     @EnvironmentObject private var processor: TextProcessor
-    public init() {}
+    @State var needsOnboarding: Bool
+    
+    public init(needsOnboarding: Bool) {
+        self.needsOnboarding = needsOnboarding
+    }
     
     // some Navigation would be nice
     var body: some View {
@@ -22,6 +26,9 @@ struct MainScreen: View {
             }
         }
         .navigationViewStyle(.stack)
+        .fullScreenCover(isPresented: $needsOnboarding) {
+            OnBoarding(needsOnboarding: $needsOnboarding)
+        }
     }
     
     private var insights: some View {
@@ -52,8 +59,10 @@ After that I had my favourite dinner ever - sausage and mash. It was perfect. De
 }
 
 struct Previews_MainScreen_Previews: PreviewProvider {
+    private static let yes = true
+    
     static var previews: some View {
-        MainScreen()
+        MainScreen(needsOnboarding: yes)
             .environmentObject(TextProcessor())
     }
 }

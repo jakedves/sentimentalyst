@@ -27,6 +27,7 @@
 		50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */; };
 		50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F029D85CC50017FC0A /* EmotionUI.swift */; };
 		50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F229D85E220017FC0A /* TextDestructurer.swift */; };
+		50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB36E929DB713800758793 /* OnBoarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TextClassifier.mlpackage; sourceTree = "<group>"; };
 		50BBB7F029D85CC50017FC0A /* EmotionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionUI.swift; sourceTree = "<group>"; };
 		50BBB7F229D85E220017FC0A /* TextDestructurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDestructurer.swift; sourceTree = "<group>"; };
+		50DB36E929DB713800758793 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				50BBB7DD29D7A9730017FC0A /* Statistics.swift */,
 				50BBB7DF29D7A9730017FC0A /* TextProcessor.swift */,
 				50BBB7F029D85CC50017FC0A /* EmotionUI.swift */,
+				50DB36E929DB713800758793 /* OnBoarding.swift */,
 				50484A7129D7A4880026F8FF /* Assets.xcassets */,
 				50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */,
 				50484A7329D7A4880026F8FF /* Preview Content */,
@@ -216,6 +219,7 @@
 				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
 				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
 				50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */,
+				50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */,
 				50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */,
 				5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */,
 				50BBB7E629D7A9730017FC0A /* TextProcessor.swift in Sources */,
