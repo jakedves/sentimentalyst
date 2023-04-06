@@ -119,9 +119,8 @@ struct Statistics: View {
     }
     
     // 4. Could plot all emotions and thier confidence per sentence??
-    // some kind of gas plot?
-    // interactive picker component
-    var idek: some View {
+    // 2 sided bar chart with emotions mapping to their average sentiment
+    var emotionSentimentRelationship: some View {
         EmptyView()
     }
     

@@ -29,6 +29,7 @@
 		50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F229D85E220017FC0A /* TextDestructurer.swift */; };
 		50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */; };
 		50CD650529DCC7CA00709865 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650429DCC7CA00709865 /* ImagePicker.swift */; };
+		50CD650829DCE39900709865 /* EmotionSentimentRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650729DCE39900709865 /* EmotionSentimentRelation.swift */; };
 		50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB36E929DB713800758793 /* OnBoarding.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
 		50CD650429DCC7CA00709865 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		50CD650629DCCC2700709865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50CD650729DCE39900709865 /* EmotionSentimentRelation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSentimentRelation.swift; sourceTree = "<group>"; };
 		50DB36E929DB713800758793 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */,
 				50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */,
 				50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */,
+				50CD650729DCE39900709865 /* EmotionSentimentRelation.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
 				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
 				50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */,
+				50CD650829DCE39900709865 /* EmotionSentimentRelation.swift in Sources */,
 				50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */,
 				50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */,
 				5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */,
