@@ -43,7 +43,6 @@ struct TodaysOverview: View {
                             
                         HelpImage() {
                             Text(Constants.explainer)
-                                .font(.headline)
                                 .multilineTextAlignment(.center)
                                 .frame(width: 400)
                         }
