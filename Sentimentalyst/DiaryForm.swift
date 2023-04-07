@@ -2,11 +2,9 @@ import SwiftUI
 
 struct DiaryForm: View {
     @State private var formWidth: CGFloat = 400
-    @ObservedObject private var processor: TextProcessor
+    @EnvironmentObject private var processor: TextProcessor
     
-    init(_ processor: TextProcessor) {
-        self.processor = processor
-    }
+    public init() {}
     
     var body: some View {
         VStack(alignment: .center) {
@@ -16,16 +14,14 @@ struct DiaryForm: View {
                 
                 Spacer()
                 
-                Image(systemName: "questionmark.circle")
-                    .onTapGesture {
-                        // SHOW HELP
-                        
-                        // TALK ABOUT NLP/AI
-                        
-                        // TALK IN FIRST PERSON
-                        
-                        // THE MORE TEXT THE BETTER
+                HelpImage() {
+                    VStack {
+                        Text("Write a diary entry, or take a picture of one.")
+                            .padding([.bottom], 20)
+                        Text("Top tips: write in first person, and the more you write the more accurate your results will be!")
                     }
+                    .font(.body)
+                }
             }
             .font(.title)
             CustomTextEditor(text: $processor.text, width: $formWidth)
@@ -36,6 +32,7 @@ struct DiaryForm: View {
 
 struct Previews_DiaryForm_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryForm(TextProcessor())
+        DiaryForm()
+            .environmentObject(TextProcessor())
     }
 }

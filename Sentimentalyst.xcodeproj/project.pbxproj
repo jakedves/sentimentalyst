@@ -7,18 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50484A6E29D7A4840026F8FF /* SentimentalystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50484A6D29D7A4840026F8FF /* SentimentalystApp.swift */; };
-		50484A7029D7A4840026F8FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50484A6F29D7A4840026F8FF /* ContentView.swift */; };
+		50130D2629D9AB8700BFA6A2 /* HelpImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2529D9AB8700BFA6A2 /* HelpImage.swift */; };
+		50130D2829D9B6FA00BFA6A2 /* TodaysOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2729D9B6FA00BFA6A2 /* TodaysOverview.swift */; };
+		50130D2A29D9B94300BFA6A2 /* EmotionPrevalence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */; };
+		50130D2C29D9BA7300BFA6A2 /* EmotionPerSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */; };
+		50130D2E29D9BB2D00BFA6A2 /* SentimentPerSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */; };
+		5047B10C29D86C7900F6418A /* TextAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B10B29D86C7900F6418A /* TextAnalyser.swift */; };
+		5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B10D29D86D3E00F6418A /* EmotionAnalyser.swift */; };
+		5047B11129D86E2100F6418A /* SentimentAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B11029D86E2100F6418A /* SentimentAnalyser.swift */; };
 		50484A7229D7A4880026F8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50484A7129D7A4880026F8FF /* Assets.xcassets */; };
 		50484A7529D7A4880026F8FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50484A7429D7A4880026F8FF /* Preview Assets.xcassets */; };
+		50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DC29D7A9730017FC0A /* Emotion.swift */; };
+		50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DD29D7A9730017FC0A /* Statistics.swift */; };
+		50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DE29D7A9730017FC0A /* MainScreen.swift */; };
+		50BBB7E629D7A9730017FC0A /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DF29D7A9730017FC0A /* TextProcessor.swift */; };
+		50BBB7E729D7A9730017FC0A /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */; };
+		50BBB7E829D7A9730017FC0A /* DiaryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7E229D7A9730017FC0A /* DiaryForm.swift */; };
+		50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */; };
+		50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */; };
+		50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F029D85CC50017FC0A /* EmotionUI.swift */; };
+		50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F229D85E220017FC0A /* TextDestructurer.swift */; };
+		50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */; };
+		50CD650529DCC7CA00709865 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650429DCC7CA00709865 /* ImagePicker.swift */; };
+		50CD650829DCE39900709865 /* EmotionSentimentRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650729DCE39900709865 /* EmotionSentimentRelation.swift */; };
+		50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB36E929DB713800758793 /* OnBoarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50130D2529D9AB8700BFA6A2 /* HelpImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpImage.swift; sourceTree = "<group>"; };
+		50130D2729D9B6FA00BFA6A2 /* TodaysOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysOverview.swift; sourceTree = "<group>"; };
+		50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionPrevalence.swift; sourceTree = "<group>"; };
+		50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionPerSentence.swift; sourceTree = "<group>"; };
+		50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentPerSentence.swift; sourceTree = "<group>"; };
+		5047B10B29D86C7900F6418A /* TextAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyser.swift; sourceTree = "<group>"; };
+		5047B10D29D86D3E00F6418A /* EmotionAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionAnalyser.swift; sourceTree = "<group>"; };
+		5047B11029D86E2100F6418A /* SentimentAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentAnalyser.swift; sourceTree = "<group>"; };
 		50484A6A29D7A4840026F8FF /* Sentimentalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentimentalyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		50484A6D29D7A4840026F8FF /* SentimentalystApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentalystApp.swift; sourceTree = "<group>"; };
-		50484A6F29D7A4840026F8FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		50484A7129D7A4880026F8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50484A7429D7A4880026F8FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50BBB7DC29D7A9730017FC0A /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		50BBB7DD29D7A9730017FC0A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		50BBB7DE29D7A9730017FC0A /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		50BBB7DF29D7A9730017FC0A /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
+		50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
+		50BBB7E229D7A9730017FC0A /* DiaryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryForm.swift; sourceTree = "<group>"; };
+		50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentimentalyst.swift; sourceTree = "<group>"; };
+		50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TextClassifier.mlpackage; sourceTree = "<group>"; };
+		50BBB7F029D85CC50017FC0A /* EmotionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionUI.swift; sourceTree = "<group>"; };
+		50BBB7F229D85E220017FC0A /* TextDestructurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDestructurer.swift; sourceTree = "<group>"; };
+		50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		50CD650429DCC7CA00709865 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		50CD650629DCCC2700709865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50CD650729DCE39900709865 /* EmotionSentimentRelation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSentimentRelation.swift; sourceTree = "<group>"; };
+		50DB36E929DB713800758793 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +73,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50130D2429D9AB7700BFA6A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50130D2529D9AB8700BFA6A2 /* HelpImage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5047B10F29D86D4500F6418A /* Text Processing */ = {
+			isa = PBXGroup;
+			children = (
+				50BBB7F229D85E220017FC0A /* TextDestructurer.swift */,
+				5047B10B29D86C7900F6418A /* TextAnalyser.swift */,
+				5047B10D29D86D3E00F6418A /* EmotionAnalyser.swift */,
+				5047B11029D86E2100F6418A /* SentimentAnalyser.swift */,
+			);
+			path = "Text Processing";
+			sourceTree = "<group>";
+		};
 		50484A6129D7A4840026F8FF = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +111,24 @@
 		50484A6C29D7A4840026F8FF /* Sentimentalyst */ = {
 			isa = PBXGroup;
 			children = (
-				50484A6D29D7A4840026F8FF /* SentimentalystApp.swift */,
-				50484A6F29D7A4840026F8FF /* ContentView.swift */,
+				50CD650629DCCC2700709865 /* Info.plist */,
+				50130D2429D9AB7700BFA6A2 /* Views */,
+				50C557D429D90182004AE97B /* Charts */,
+				5047B10F29D86D4500F6418A /* Text Processing */,
+				50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */,
+				50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */,
+				50BBB7E229D7A9730017FC0A /* DiaryForm.swift */,
+				50BBB7DC29D7A9730017FC0A /* Emotion.swift */,
+				50BBB7DE29D7A9730017FC0A /* MainScreen.swift */,
+				50BBB7DD29D7A9730017FC0A /* Statistics.swift */,
+				50BBB7DF29D7A9730017FC0A /* TextProcessor.swift */,
+				50BBB7F029D85CC50017FC0A /* EmotionUI.swift */,
+				50DB36E929DB713800758793 /* OnBoarding.swift */,
 				50484A7129D7A4880026F8FF /* Assets.xcassets */,
+				50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */,
 				50484A7329D7A4880026F8FF /* Preview Content */,
+				50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */,
+				50CD650429DCC7CA00709865 /* ImagePicker.swift */,
 			);
 			path = Sentimentalyst;
 			sourceTree = "<group>";
@@ -65,6 +139,18 @@
 				50484A7429D7A4880026F8FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50C557D429D90182004AE97B /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				50130D2729D9B6FA00BFA6A2 /* TodaysOverview.swift */,
+				50130D2929D9B94300BFA6A2 /* EmotionPrevalence.swift */,
+				50130D2B29D9BA7300BFA6A2 /* EmotionPerSentence.swift */,
+				50130D2D29D9BB2D00BFA6A2 /* SentimentPerSentence.swift */,
+				50CD650729DCE39900709865 /* EmotionSentimentRelation.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +223,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50484A7029D7A4840026F8FF /* ContentView.swift in Sources */,
-				50484A6E29D7A4840026F8FF /* SentimentalystApp.swift in Sources */,
+				5047B10C29D86C7900F6418A /* TextAnalyser.swift in Sources */,
+				50130D2A29D9B94300BFA6A2 /* EmotionPrevalence.swift in Sources */,
+				50130D2629D9AB8700BFA6A2 /* HelpImage.swift in Sources */,
+				50CD650529DCC7CA00709865 /* ImagePicker.swift in Sources */,
+				50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */,
+				50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */,
+				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
+				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
+				50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */,
+				50CD650829DCE39900709865 /* EmotionSentimentRelation.swift in Sources */,
+				50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */,
+				50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */,
+				5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */,
+				50BBB7E629D7A9730017FC0A /* TextProcessor.swift in Sources */,
+				50130D2829D9B6FA00BFA6A2 /* TodaysOverview.swift in Sources */,
+				50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */,
+				50130D2E29D9BB2D00BFA6A2 /* SentimentPerSentence.swift in Sources */,
+				50BBB7E729D7A9730017FC0A /* CustomTextEditor.swift in Sources */,
+				50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */,
+				5047B11129D86E2100F6418A /* SentimentAnalyser.swift in Sources */,
+				50130D2C29D9BA7300BFA6A2 /* EmotionPerSentence.swift in Sources */,
+				50BBB7E829D7A9730017FC0A /* DiaryForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +376,7 @@
 				DEVELOPMENT_TEAM = 3FD587963T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sentimentalyst/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +406,7 @@
 				DEVELOPMENT_TEAM = 3FD587963T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sentimentalyst/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -1,0 +1,9 @@
+{
+  "MLModelVersionStringKey" : "1.0",
+  "MLModelDescriptionKey" : "A model trained to identify emotion of first person sentences",
+  "MLModelCreatorDefinedKey" : {
+    "com.apple.createml.version" : "13.2.1"
+  },
+  "MLModelAuthorKey" : "Jake Davies",
+  "MLModelLicenseKey" : "--"
+}
