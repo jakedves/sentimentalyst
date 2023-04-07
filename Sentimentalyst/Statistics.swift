@@ -54,7 +54,7 @@ struct Statistics: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        emotionPercentage
+                        emotionSentimentRelationship
                             .frame(width: itemWidth, height: itemHeight)
                         Spacer()
                         overview
@@ -83,7 +83,7 @@ struct Statistics: View {
                         sentimentPerSentence
                             .frame(width: itemWidth, height: itemHeight)
                         Spacer()
-                        emotionPercentage
+                        emotionSentimentRelationship
                             .frame(width: itemWidth, height: itemHeight)
                         Spacer()
                     }
@@ -121,7 +121,7 @@ struct Statistics: View {
     // 4. Could plot all emotions and thier confidence per sentence??
     // 2 sided bar chart with emotions mapping to their average sentiment
     var emotionSentimentRelationship: some View {
-        EmptyView()
+        EmotionSentimentRelation(emotionPerSentence: processor.emotionPerSentence, sentimentPerSentence: processor.sentimentPerSentence)
     }
     
     // 5. (whole text in one analysis)
