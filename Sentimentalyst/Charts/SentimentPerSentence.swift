@@ -39,6 +39,10 @@ struct SentimentPerSentence: View {
                     )
                     .interpolationMethod(.catmullRom)
                     .opacity(mainLineOpacity)
+                    PointMark(x: .value(Constants.xLabel, index + 1),
+                            y: .value(Constants.yLabel, sentiment)
+                    )
+                    .symbol(.cross)
                 }
                 RuleMark(y: .value("Average", avg))
                     .annotation(position: .top, alignment: .leading) {
@@ -54,6 +58,24 @@ struct SentimentPerSentence: View {
             .chartYAxisLabel(Constants.yAxisTop, position: .top, alignment: .trailing)
             .chartYAxisLabel(Constants.yAxisBot, position: .bottom, alignment: .trailing)
             .chartXAxisLabel(Constants.xAxisLabel, position: .bottom, alignment: .center)
+            .chartBackground { proxy in
+                GeometryReader { geo in
+                    VStack(spacing: 0) {
+                        Rectangle()
+                            .foregroundColor(.green)
+                            .frame(width: proxy.plotAreaSize.width, height: proxy.plotAreaSize.height / 2)
+                            .offset(x: geo[proxy.plotAreaFrame].origin.x,
+                                    y: geo[proxy.plotAreaFrame].origin.y)
+                        Rectangle()
+                            .foregroundColor(.red)
+                            .frame(width: proxy.plotAreaSize.width, height: proxy.plotAreaSize.height / 2)
+                            .offset(x: geo[proxy.plotAreaFrame].origin.x,
+                                    y: geo[proxy.plotAreaFrame].origin.y)
+                    }
+                    .opacity(0.1)
+                    
+                }
+            }
             .gesture(DragGesture(minimumDistance: 0)
                 .onChanged { _ in
                     averageOpacity = 1.0

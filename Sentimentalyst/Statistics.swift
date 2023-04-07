@@ -118,7 +118,7 @@ struct Statistics: View {
                              avg: avg)
     }
     
-    // 4. Could plot all emotions and thier confidence per sentence??
+    // 4.
     // 2 sided bar chart with emotions mapping to their average sentiment
     var emotionSentimentRelationship: some View {
         EmotionSentimentRelation(emotionPerSentence: processor.emotionPerSentence, sentimentPerSentence: processor.sentimentPerSentence)
