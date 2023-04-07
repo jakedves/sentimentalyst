@@ -23,15 +23,14 @@ struct SentimentPerSentence: View {
         VStack {
             HStack {
                 Text(Constants.title)
+                    .bold()
+                    .font(.title2)
                 HelpImage() {
                     Text(Constants.explainer)
-                        .font(.headline)
                         .multilineTextAlignment(.center)
                         .frame(width: 400)
                 }
             }
-            .bold()
-            .font(.title2)
             Chart {
                 ForEach(data.indices, id: \.self) { index in
                     let sentiment = data[index]
