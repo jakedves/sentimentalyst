@@ -17,6 +17,7 @@
 		5047B11129D86E2100F6418A /* SentimentAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047B11029D86E2100F6418A /* SentimentAnalyser.swift */; };
 		50484A7229D7A4880026F8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50484A7129D7A4880026F8FF /* Assets.xcassets */; };
 		50484A7529D7A4880026F8FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50484A7429D7A4880026F8FF /* Preview Assets.xcassets */; };
+		50A5CF4F29E38C4200B3A019 /* TextClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 50A5CF4E29E38C4200B3A019 /* TextClassifier.mlmodel */; };
 		50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DC29D7A9730017FC0A /* Emotion.swift */; };
 		50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DD29D7A9730017FC0A /* Statistics.swift */; };
 		50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7DE29D7A9730017FC0A /* MainScreen.swift */; };
@@ -24,7 +25,6 @@
 		50BBB7E729D7A9730017FC0A /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */; };
 		50BBB7E829D7A9730017FC0A /* DiaryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7E229D7A9730017FC0A /* DiaryForm.swift */; };
 		50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */; };
-		50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */; };
 		50BBB7F129D85CC50017FC0A /* EmotionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F029D85CC50017FC0A /* EmotionUI.swift */; };
 		50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBB7F229D85E220017FC0A /* TextDestructurer.swift */; };
 		50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */; };
@@ -45,6 +45,7 @@
 		50484A6A29D7A4840026F8FF /* Sentimentalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentimentalyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50484A7129D7A4880026F8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50484A7429D7A4880026F8FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50A5CF4E29E38C4200B3A019 /* TextClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TextClassifier.mlmodel; sourceTree = "<group>"; };
 		50BBB7DC29D7A9730017FC0A /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		50BBB7DD29D7A9730017FC0A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		50BBB7DE29D7A9730017FC0A /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		50BBB7E229D7A9730017FC0A /* DiaryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryForm.swift; sourceTree = "<group>"; };
 		50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentimentalyst.swift; sourceTree = "<group>"; };
-		50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TextClassifier.mlpackage; sourceTree = "<group>"; };
 		50BBB7F029D85CC50017FC0A /* EmotionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionUI.swift; sourceTree = "<group>"; };
 		50BBB7F229D85E220017FC0A /* TextDestructurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDestructurer.swift; sourceTree = "<group>"; };
 		50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
@@ -76,7 +76,12 @@
 		50130D2429D9AB7700BFA6A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */,
 				50130D2529D9AB8700BFA6A2 /* HelpImage.swift */,
+				50CD650429DCC7CA00709865 /* ImagePicker.swift */,
+				50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */,
+				50DB36E929DB713800758793 /* OnBoarding.swift */,
+				50BBB7E229D7A9730017FC0A /* DiaryForm.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,6 +89,7 @@
 		5047B10F29D86D4500F6418A /* Text Processing */ = {
 			isa = PBXGroup;
 			children = (
+				50BBB7DF29D7A9730017FC0A /* TextProcessor.swift */,
 				50BBB7F229D85E220017FC0A /* TextDestructurer.swift */,
 				5047B10B29D86C7900F6418A /* TextAnalyser.swift */,
 				5047B10D29D86D3E00F6418A /* EmotionAnalyser.swift */,
@@ -116,19 +122,13 @@
 				50C557D429D90182004AE97B /* Charts */,
 				5047B10F29D86D4500F6418A /* Text Processing */,
 				50BBB7EA29D7A9D80017FC0A /* Sentimentalyst.swift */,
-				50BBB7E129D7A9730017FC0A /* CustomTextEditor.swift */,
-				50BBB7E229D7A9730017FC0A /* DiaryForm.swift */,
 				50BBB7DC29D7A9730017FC0A /* Emotion.swift */,
 				50BBB7DE29D7A9730017FC0A /* MainScreen.swift */,
 				50BBB7DD29D7A9730017FC0A /* Statistics.swift */,
-				50BBB7DF29D7A9730017FC0A /* TextProcessor.swift */,
 				50BBB7F029D85CC50017FC0A /* EmotionUI.swift */,
-				50DB36E929DB713800758793 /* OnBoarding.swift */,
 				50484A7129D7A4880026F8FF /* Assets.xcassets */,
-				50BBB7EE29D7C8800017FC0A /* TextClassifier.mlpackage */,
+				50A5CF4E29E38C4200B3A019 /* TextClassifier.mlmodel */,
 				50484A7329D7A4880026F8FF /* Preview Content */,
-				50CD650229DCC7A700709865 /* ImagePickerCoordinator.swift */,
-				50CD650429DCC7CA00709865 /* ImagePicker.swift */,
 			);
 			path = Sentimentalyst;
 			sourceTree = "<group>";
@@ -229,13 +229,13 @@
 				50CD650529DCC7CA00709865 /* ImagePicker.swift in Sources */,
 				50BBB7E329D7A9730017FC0A /* Emotion.swift in Sources */,
 				50CD650329DCC7A700709865 /* ImagePickerCoordinator.swift in Sources */,
-				50BBB7EF29D7C8800017FC0A /* TextClassifier.mlpackage in Sources */,
 				50BBB7E429D7A9730017FC0A /* Statistics.swift in Sources */,
 				50BBB7E529D7A9730017FC0A /* MainScreen.swift in Sources */,
 				50CD650829DCE39900709865 /* EmotionSentimentRelation.swift in Sources */,
 				50DB36EA29DB713800758793 /* OnBoarding.swift in Sources */,
 				50BBB7EB29D7A9D80017FC0A /* Sentimentalyst.swift in Sources */,
 				5047B10E29D86D3E00F6418A /* EmotionAnalyser.swift in Sources */,
+				50A5CF4F29E38C4200B3A019 /* TextClassifier.mlmodel in Sources */,
 				50BBB7E629D7A9730017FC0A /* TextProcessor.swift in Sources */,
 				50130D2829D9B6FA00BFA6A2 /* TodaysOverview.swift in Sources */,
 				50BBB7F329D85E220017FC0A /* TextDestructurer.swift in Sources */,
